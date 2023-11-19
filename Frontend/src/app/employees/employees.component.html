@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <h3 class="text-center mb-3">
+        List of Employees
+    </h3>
+    <div class="row d-flex justify-content-center mb-5">
+        <div class="col-8">
+            <ol class="list-group list-group-numbered">
+                <li 
+                *ngFor="let employee of EmployeesList"
+                class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">
+                            {{employee.first_name}} {{employee.last_name}}
+                        </div>
+                        <div style="display: flex; min-width: 500px; justify-content: space-between;">
+                            <div>
+                                ROLE : {{employee.role}}
+                            </div>
+                        </div>
+                        <div style="display: flex; ">
+                            <div>
+                                Email : 
+                                <a href="mailto:{{employee.email}}">
+                                    {{employee.email}} 
+                                </a>
+                            </div>
+                            <div>&nbsp;&nbsp;| &nbsp;&nbsp;</div>
+                            <div>
+                                Phone Number : {{employee.phone_number}}
+                            </div>
+                        </div>
+                    </div>
+                    <span class="badge bg-primary rounded-pill">
+                        {{employee.working_status}}
+                    </span>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,8 @@
 <div class="container mt-5">
-    <div class="container w-5">
-        <div class="row d-flex justify-content-center">
-            <div class="col-5">
-
-                <form class="border border-5 p-5 border">
+    <div class="container ">
+        <div class="row my-2 d-flex justify-content-center">
+            <div class="col-10">
+                <form class="border border-5 p-5 border" [formGroup]="EmployeeForm" (ngSubmit)="onSubmit()">
                     <!-- Email input -->
                     <h3 class="text-center">
                         Register New Employee
@@ -11,34 +10,75 @@
                     <p class="text-center my-3">
                         Please Enter All required feilds for employee registration
                     </p>
-                    <div class="form-outline mb-4">
-                        <input type="email" id="form2Example1" class="form-control" />
-                        <label class="form-label" for="form2Example1">Email address</label>
-                    </div>
-
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                        <input type="password" id="form2Example2" class="form-control" />
-                        <label class="form-label" for="form2Example2">Password</label>
-                    </div>
-
-                    <!-- 2 column grid layout for inline styling -->
-                    <div class="row mb-4">
-                        <div class="col d-flex justify-content-center">
-                            <!-- Checkbox -->
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="form2Example31" />
-                                <label class="form-check-label" for="form2Example31"> Remember me </label>
-                            </div>
-                        </div>
-
+                    <div class="row my-2">
                         <div class="col">
-                            <a routerLink='/login'>Login as admin</a>
+                            <label for="firstname" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstname" formControlName="Firstname">
+                        </div>
+                        <div class="col">
+                            <label for="lastname" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastname" formControlName="LastName">
+                        </div>
+                        <div class="col-2">
+                            <label for="empid" class="form-label">Employee Id</label>
+                            <input  type="number" class="form-control" readonly id="empid" formControlName="EmpID" >
                         </div>
                     </div>
-
-                    <div class="row ">
-                        <button type="button" class="btn btn-primary btn-block mb-4 ">Sign in</button>
+                    <div class="row my-2">
+                        <div class="col-4">
+                            <label class="form-label" for="email">Email address</label>
+                            <input type="email" id="email" class="form-control" formControlName="Email"/>
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label" for="Password">Password</label>
+                            <input type="password" id="Password" class="form-control" formControlName="Password"/>
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label" for="HireDate" >Hire date</label>
+                            <input type="date" id="HireDate" class="form-control" formControlName="HireDate"/>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-3">
+                            <label class="form-label" for="phonenumber">Phone number</label>
+                            <input type="text" id="phonenumber" class="form-control" formControlName="Phonenumber" placeholder="+1 (xxx)-xxx-xxx" />
+                        </div>
+                        <div class="col">
+                            <label class="form-label" for="address">Address</label>
+                            <input type="text" id="address" class="form-control" formControlName="Address" />
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-4">
+                            <label class="form-label" for="role">Position/Role</label>
+                            <select class="form-select" formControlName="Role">
+                                <option selected disabled>select employee Position</option>
+                                <option value="MANAGEMENT">MANAGEMENT</option>
+                                <option value="HR_MANAGMENT">HR MANAGMENT</option>
+                                <option value="PSS">PSS RECRUTER</option>
+                                <option value="BUSINESS_ANALYST">BUSINESS ANALYST</option>
+                                <option value="QUALITY_ANALYST">QUALITY ANALYST</option>
+                                <option value="CLEANING">CLEANING</option>
+                                <option value="DEVELOPER">DEVELOPER</option>
+                                <option value="ADMINISTRATOR">ADMINISTRATOR</option>
+                                <option value="RECEPTIONIST">RECEPTIONIST</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label" for="salary">Salary</label>
+                            <input type="number" id="salary" class="form-control"  formControlName="Salary"/>
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label" for="status">Status</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="Status">
+                                <option selected disabled>select Employee status</option>
+                                <option value="ACTIVE">ACTIVE</option>
+                                <option value="INACTIVE">INACTIVE</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row my-2 mt-3">
+                        <button type="submit" class="btn btn-primary btn-block mb-4 ">Add Employee</button>
                     </div>
                 </form>
             </div>

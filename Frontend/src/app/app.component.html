@@ -1,8 +1,79 @@
-<div class="row">
-  <div class="col-2">
-    <app-left-nav-bar></app-left-nav-bar>
-  </div>
-  <div class="col-9" >
-    <router-outlet></router-outlet>
+
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 " style="background-color: #feb249;">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+        <a routerLink="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <span class="fs-5 d-none d-sm-inline text-center fc-mylight">
+            Employee
+            Management
+            System
+          </span>
+        </a>
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link align-middle px-0">
+              <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+              <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Employees</span> </a>
+            <ul class="collapse  nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+              <li class="w-100">
+                <a routerLink="/employees" class="nav-link px-0"> <span class="d-none d-sm-inline">Employees List</span>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/employees/add" class="nav-link px-0"> <span class="d-none d-sm-inline">Add
+                    Employee</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+              <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Projects</span> </a>
+            <ul class="collapse  nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+              <li class="w-100">
+                <a routerLink="/projects" class="nav-link px-0"> <span class="d-none d-sm-inline">Live Projects</span>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/projects/add" class="nav-link px-0"> <span class="d-none d-sm-inline">Add New
+                    Project</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a routerLink="/leaves" class="nav-link px-0 align-middle">
+              <i class="fs-4 bi bi-calendar2-week"></i><span class="ms-1 d-none d-sm-inline">Leaves</span> </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-0 align-middle">
+              <i class="fs-4 bi bi-receipt-cutoff"></i><span class="ms-1 d-none d-sm-inline">Billing</span> </a>
+          </li>
+          <li>
+            <button (click)="logout()" class="nav-link px-0 align-middle">
+              <i class="fs-4 bi bi-box-arrow-left"></i><span class="ms-1 d-none d-sm-inline">Logout</span> </button>
+          </li>
+        </ul>
+        <hr>
+        <div class="dropdown pb-4 fc-mylight">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none" id="dropdownUser1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fs-4 bi bi-person-square"></i>
+            <span class="d-none d-sm-inline mx-1">
+              {{AccountName}}
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col py-3" style="max-height: 100vh; overflow-y: scroll;">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

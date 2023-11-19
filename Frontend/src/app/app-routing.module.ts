@@ -10,19 +10,53 @@ import { HrLoginComponent } from './components/hr-login/hr-login.component';
 import { HrRegisterComponent } from './components/hr-register/hr-register.component';
 import { EmployeeLoginComponent } from './components/employee-login/employee-login.component';
 import { EmployeeRegisterComponent } from './components/employee-register/employee-register.component';
+import { authGuard } from './gaurds/auth.guard';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'projects', component: ProjectsComponent },
-  { path: 'projects/add', component: AddProjectComponent },
-  { path: 'employees', component: EmployeesComponent },
-  { path: 'employees/add', component: EmployeeRegisterComponent },
-  { path: 'leaves', component: LeavesComponent },
-  { path: 'leaves/add', component: AddLeavesComponent },
+  { path: 'projects', component: ProjectsComponent, canActivate: [authGuard] },
+  {
+    path: 'projects/add',
+    component: AddProjectComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'employees',
+    component: EmployeesComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'employees/add',
+    component: EmployeeRegisterComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'leaves', component: LeavesComponent, canActivate: [authGuard] },
+  {
+    path: 'leaves/request',
+    component: AddLeavesComponent,
+    canActivate: [authGuard],
+  },
   { path: 'login', component: HrLoginComponent },
-  { path: 'register/hr', component: HrRegisterComponent },
-  { path: 'login/employee', component: EmployeeLoginComponent },
-  { path: 'register/employee', component: EmployeeRegisterComponent },
+  {
+    path: 'register/hr',
+    component: HrRegisterComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'login/employee',
+    component: EmployeeLoginComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'register/employee',
+    component: EmployeeRegisterComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'forbidden',
+    component: ForbiddenComponent,
+  },
 ];
 
 @NgModule({

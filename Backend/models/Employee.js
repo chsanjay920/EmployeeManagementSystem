@@ -9,9 +9,26 @@ const EmployeeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  employee_id:{
+    type:mongoose.Schema.Types.ObjectId,
+    required:true
+  },
+  empid:{
+    type:String,
+    required:true
+  },
   email: {
     type: String,
     required: true
+  },
+  password:{
+    type:String,
+    required:true
+  },
+  hire_date: {
+    type: Date,
+    required: true,
+    default: Date.now
   },
   phone_number:{
     type:String,
@@ -20,11 +37,6 @@ const EmployeeSchema = new mongoose.Schema({
   address:{
     type:String,
     required:true
-  },
-  hire_date: {
-    type: Date,
-    required: true,
-    default: Date.now
   },
   role: {
     type: String,
@@ -38,14 +50,6 @@ const EmployeeSchema = new mongoose.Schema({
     type:String,
     required:false,
     default:'Active'
-  },
-  manager_id:{
-    type:String,
-    required:true
-  },
-  department_id:{
-    type:String,
-    required:true
   }
 })
 

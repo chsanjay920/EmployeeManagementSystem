@@ -17,6 +17,7 @@ import { EmployeeLoginComponent } from './components/employee-login/employee-log
 import { HrLoginComponent } from './components/hr-login/hr-login.component';
 import { HrRegisterComponent } from './components/hr-register/hr-register.component';
 import { EmployeeRegisterComponent } from './components/employee-register/employee-register.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { EmployeeRegisterComponent } from './components/employee-register/employ
     EmployeeLoginComponent,
     HrLoginComponent,
     HrRegisterComponent,
-    EmployeeRegisterComponent
+    EmployeeRegisterComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,

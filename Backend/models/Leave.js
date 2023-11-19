@@ -2,9 +2,14 @@ const mongoose = require('mongoose')
 
 
 const LeavesSchema = new mongoose.Schema({
-  employee_id: {
-    type: String,
-    required: true
+  employee_id:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref: 'Employee',
+    required:false
+  },
+  empid:{
+    type:String,
+    required:true
   },
   leave_type: {
     type: String,

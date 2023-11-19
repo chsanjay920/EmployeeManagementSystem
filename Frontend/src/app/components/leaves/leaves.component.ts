@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LeavesService } from 'src/app/services/leaves.service';
-import {  LeaveModel } from 'src/model/leaves';
+import {  LeaveModel } from '../../model/leaves';
 
 @Component({
   selector: 'app-leaves',

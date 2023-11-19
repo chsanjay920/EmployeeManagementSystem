@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ProjectService } from '../services/project.service';
-import { projectModel } from 'src/model/project';
+import { ProjectService } from '../../services/project.service';
+import { projectModel } from '../../model/project';
 
 @Component({
   selector: 'app-left-nav-bar',

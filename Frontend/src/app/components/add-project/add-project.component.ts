@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { projectModel } from 'src/model/project';
-import { ProjectService } from '../services/project.service';
+import { projectModel } from '../..//model/project';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-add-project',

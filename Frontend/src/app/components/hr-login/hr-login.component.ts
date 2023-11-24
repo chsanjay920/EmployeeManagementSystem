@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { LoginModel } from 'src/app/model/login';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { EmployeeService } from 'src/app/services/employee.service';
@@ -9,7 +10,10 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./hr-login.component.css']
 })
 export class HrLoginComponent {
-  constructor(private employeeService:EmployeeService,private authService:AuthenticationService)
+  constructor(private employeeService:EmployeeService,
+    private authService:AuthenticationService,
+    private router:Router
+    )
   {}
   LoginForm = new FormGroup({
     Email: new FormControl('', [Validators.required]),
@@ -27,6 +31,7 @@ export class HrLoginComponent {
         if(data!= null)
         {
           this.authService.storeToken(data);
+          this.router.navigateByUrl('/');
         }
       })
     }

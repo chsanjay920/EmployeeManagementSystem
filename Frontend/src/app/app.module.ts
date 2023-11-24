@@ -18,6 +18,11 @@ import { HrLoginComponent } from './components/hr-login/hr-login.component';
 import { HrRegisterComponent } from './components/hr-register/hr-register.component';
 import { EmployeeRegisterComponent } from './components/employee-register/employee-register.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import { SubmitTimeSheetComponent } from './components/submit-time-sheet/submit-time-sheet.component';
+import { BillingComponent } from './components/billing/billing.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { TimesheetComponent } from './components/timesheet/timesheet.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
     HrLoginComponent,
     HrRegisterComponent,
     EmployeeRegisterComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    SubmitTimeSheetComponent,
+    BillingComponent,
+    ProfileComponent,
+    ReviewsComponent,
+    TimesheetComponent
   ],
   imports: [
     BrowserModule,

@@ -4,17 +4,25 @@ import { AuthenticationService } from '../services/authentication.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const authService: any = inject(AuthenticationService);
-  const router:any = inject(Router);
-  
+  const router: any = inject(Router);
+
   const data = JSON.parse(localStorage.getItem('logintoken')!);
-  if (data!= null && data.role != "HR_MANAGMENT") {
-    return true;
-  }
-  else if (data!= null && data.role == "HR_MANAGMENT") {
-    return true;
-  }
-   else {
-    router.navigateByUrl('/login')
+  if (data == null) {
+    router.navigateByUrl('/');
     return false;
+  }
+  if (data != null && data.role == route.data['expectedRole']) {
+    return true;
+  } else {
+    if (
+      data != null &&
+      route.data['expectedRole'] == 'USER' &&
+      data.role != ''
+      ) {
+      return true;
+    } else {
+      router.navigateByUrl('/login');
+      return false;
+    }
   }
 };

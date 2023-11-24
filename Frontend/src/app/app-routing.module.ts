@@ -12,51 +12,110 @@ import { EmployeeLoginComponent } from './components/employee-login/employee-log
 import { EmployeeRegisterComponent } from './components/employee-register/employee-register.component';
 import { authGuard } from './gaurds/auth.guard';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { BillingComponent } from './components/billing/billing.component';
+import { SubmitTimeSheetComponent } from './components/submit-time-sheet/submit-time-sheet.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { TimesheetComponent } from './components/timesheet/timesheet.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'projects', component: ProjectsComponent, canActivate: [authGuard] },
+  { path: 'projects', component: ProjectsComponent },
   {
     path: 'projects/add',
     component: AddProjectComponent,
     canActivate: [authGuard],
+    data: {
+      expectedRole: 'HR_MANAGMENT',
+    },
   },
   {
     path: 'employees',
     component: EmployeesComponent,
-    canActivate: [authGuard],
   },
   {
     path: 'employees/add',
     component: EmployeeRegisterComponent,
     canActivate: [authGuard],
+    data: {
+      expectedRole: 'HR_MANAGMENT',
+    },
   },
-  { path: 'leaves', component: LeavesComponent, canActivate: [authGuard] },
+  {
+    path: 'leaves',
+    component: LeavesComponent,
+    canActivate: [authGuard],
+    data: {
+      expectedRole: 'HR_MANAGMENT',
+    },
+  },
   {
     path: 'leaves/request',
     component: AddLeavesComponent,
     canActivate: [authGuard],
+    data: {
+      expectedRole: 'USER',
+    },
   },
   { path: 'login', component: HrLoginComponent },
+  { path: 'reviews', component: ReviewsComponent },
   {
     path: 'register/hr',
     component: HrRegisterComponent,
     canActivate: [authGuard],
+    data: {
+      expectedRole: 'HR_MANAGMENT',
+    },
   },
   {
     path: 'login/employee',
     component: EmployeeLoginComponent,
-    canActivate: [authGuard],
   },
   {
     path: 'register/employee',
     component: EmployeeRegisterComponent,
     canActivate: [authGuard],
+    data: {
+      expectedRole: 'HR_MANAGMENT',
+    },
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [authGuard],
+    data: {
+      expectedRole: 'USER',
+    },
+  },
+  {
+    path:'timesheet',
+    component:TimesheetComponent,
+    canActivate:[authGuard],
+    data: {
+      expectedRole: 'USER',
+    },
+  },
+  {
+    path: 'billing',
+    component: BillingComponent,
+    canActivate: [authGuard],
+    data: {
+      expectedRole: 'HR_MANAGMENT',
+    },
+  },
+  {
+    path: 'timesheet',
+    component: SubmitTimeSheetComponent,
+    canActivate: [authGuard],
+    data: {
+      expectedRole: 'USER',
+    },
   },
   {
     path: 'forbidden',
     component: ForbiddenComponent,
   },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

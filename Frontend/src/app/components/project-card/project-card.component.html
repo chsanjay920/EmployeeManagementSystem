@@ -1,4 +1,4 @@
-<div class="card card-margin">
+<div class="card card-margin" style="height: 250px;">
     <div class="card-header no-border py-3">
         <h5 class="card-title">
             {{projectDetailes.project_name}}
@@ -21,8 +21,8 @@
                     </span>
                 </div>
             </div>
-            <div class="widget-49-meeting-points mt-3">
-                {{projectDetailes.project_description}}
+            <div class="widget-49-meeting-points mt-3 " style="height: 50px;">
+                {{projectDetailes.project_description| slice:0:100}}
             </div>
             <div class="widget-49-meeting-action">
                 <a href="#" class="btn btn-sm btn-flash-border-primary">View All</a>

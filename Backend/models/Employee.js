@@ -11,7 +11,7 @@ const EmployeeSchema = new mongoose.Schema({
   },
   employee_id:{
     type:mongoose.Schema.Types.ObjectId,
-    required:true
+    required:false
   },
   empid:{
     type:String,

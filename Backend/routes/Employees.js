@@ -46,7 +46,6 @@ router.post('/employee', async (req, res) => {
     }
     try {
         const Employees = await Employee.find( data );
-        console.log(Employees);
         res.status(201).json(Employees[0])
     } catch (err) {
         res.status(400).json({ message: err.message })

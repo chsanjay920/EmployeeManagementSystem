@@ -23,6 +23,7 @@ import { BillingComponent } from './components/billing/billing.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { TimesheetComponent } from './components/timesheet/timesheet.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { TimesheetComponent } from './components/timesheet/timesheet.component';
     BillingComponent,
     ProfileComponent,
     ReviewsComponent,
-    TimesheetComponent
+    TimesheetComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

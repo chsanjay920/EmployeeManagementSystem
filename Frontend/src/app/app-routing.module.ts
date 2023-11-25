@@ -17,6 +17,7 @@ import { BillingComponent } from './components/billing/billing.component';
 import { SubmitTimeSheetComponent } from './components/submit-time-sheet/submit-time-sheet.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { TimesheetComponent } from './components/timesheet/timesheet.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -88,9 +89,17 @@ const routes: Routes = [
     },
   },
   {
-    path:'timesheet',
-    component:TimesheetComponent,
-    canActivate:[authGuard],
+    path: 'notifications',
+    component: NotificationsComponent,
+    canActivate: [authGuard],
+    data: {
+      expectedRole: 'USER',
+    },
+  },
+  {
+    path: 'timesheet',
+    component: TimesheetComponent,
+    canActivate: [authGuard],
     data: {
       expectedRole: 'USER',
     },

@@ -128,6 +128,12 @@
                 <span class="ms-1 d-none d-sm-inline">Submit TimeSheet</span>
                </a>
             </li>
+            <li>
+              <a routerLink="/notifications" class="nav-link px-0 align-middle">
+                <i class="fs-4 bi bi-chat-left-dots"></i>
+                <span class="ms-1 d-none d-sm-inline">Messages</span>
+               </a>
+            </li>
           </div>
           <li>
             <button  *ngIf="isLogedIn" (click)="logout()" class="nav-link px-0 align-middle">

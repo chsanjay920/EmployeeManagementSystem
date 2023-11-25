@@ -6,10 +6,9 @@ import { EmployeeModel } from '../model/employee';
 import { LoginModel } from '../model/login';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EmployeeService {
-
   apiUrl = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) {}
@@ -18,11 +17,11 @@ export class EmployeeService {
     return this.http.get<any[]>(`${this.apiUrl}employees/`);
   }
   postEmployee(data: EmployeeModel): any {
-    this.http.post<any>(`${this.apiUrl}employees/`, data).subscribe((data) => {
-      console.log(data);
-    });
+    this.http
+      .post<any>(`${this.apiUrl}employees/`, data)
+      .subscribe((data) => {});
   }
-  SignIn(data:LoginModel):Observable<any>{
+  SignIn(data: LoginModel): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}employees/employee`, data);
   }
 }

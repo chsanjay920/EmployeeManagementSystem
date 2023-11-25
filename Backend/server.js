@@ -13,7 +13,9 @@ const subscribersRouter = require('./routes/subscribers')
 const departmentRouter = require('./routes/Departments')
 const employeeRouter = require('./routes/Employees')
 const projectRouter = require('./routes/Projects')
+const MessageRouter = require('./routes/Message')
 const leavesRouter = require('./routes/Leaves')
+const timesheetRouter = require('./routes/Timesheet')
 
 
 const cors = require('cors');
@@ -22,10 +24,12 @@ app.use(cors());
 
 
 app.use('/subscribers', subscribersRouter)
-app.use('/departments',departmentRouter)
-app.use('/employees',employeeRouter)
-app.use('/projects',projectRouter)
-app.use('/leaves',leavesRouter)
+app.use('/departments', departmentRouter)
+app.use('/employees', employeeRouter)
+app.use('/projects', projectRouter)
+app.use('/leaves', leavesRouter)
+app.use('/message', MessageRouter)
+app.use('/timesheet', timesheetRouter)
 
 
 app.listen(3000, () => console.log('Server Started'))

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LeaveModel } from 'src/app/model/leaves';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { LeavesService } from 'src/app/services/leaves.service';
@@ -13,7 +14,8 @@ export class AddLeavesComponent implements OnInit {
   empId = '';
   constructor(
     private authenticateService: AuthenticationService,
-    private leaveService: LeavesService
+    private leaveService: LeavesService,
+    private router: Router
   ) {
     this.empId = this.authenticateService.getEmployeeId();
     this.LeaveRequestForm.patchValue({
@@ -40,8 +42,11 @@ export class AddLeavesComponent implements OnInit {
         end_date: this.LeaveRequestForm.value.EndDate!,
       };
       this.leaveService.postLeave(LeaveData).subscribe((data: any) => {
-        console.log(data);
+        alert('Leave Request Submited!');
+        this.LeaveRequestForm.reset();
       });
+    } else {
+      alert('All Feilds Are Required! and Valid.');
     }
   }
 }

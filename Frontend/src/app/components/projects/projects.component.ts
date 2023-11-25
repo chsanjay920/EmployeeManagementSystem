@@ -21,14 +21,12 @@ export class ProjectsComponent implements OnInit {
   ngOnInit() {
     this.projectApi.getProjects().subscribe((data: projectModel[]) => {
       this.projects = data;
-      console.log(this.projects);
     });
     this.subscription = this.authService.IsLogedIn.subscribe((data) => {
       this.isAdmin = data.IsAdmin;
     });
   }
   RedirectToProjects() {
-    console.log('project');
     this.router.navigate(['/projects/add']);
   }
   ngOnDestroy() {

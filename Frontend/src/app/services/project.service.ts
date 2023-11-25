@@ -16,7 +16,7 @@ export class ProjectService {
   }
   postProject(data: projectModel): any {
     this.http.post<any>(`${this.apiUrl}projects/`, data).subscribe((data) => {
-      console.log(data);
+
     });
   }
 }

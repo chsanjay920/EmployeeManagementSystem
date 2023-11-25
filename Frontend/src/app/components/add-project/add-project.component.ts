@@ -17,12 +17,10 @@ export class AddProjectComponent {
     projectDescription: new FormControl('', [Validators.required]),
     storypoints: new FormControl('', [Validators.required]),
     status: new FormControl('', [Validators.required]),
-
     startDate: new FormControl('', [Validators.required]),
     endDate: new FormControl('', [Validators.required]),
   });
   onSubmit() {
-    console.log(this.projectForm);
     if (this.projectForm.status == 'VALID') {
       var project: projectModel = {
         project_name: this.projectForm.value.projectName!,
@@ -34,10 +32,11 @@ export class AddProjectComponent {
         start_date: this.projectForm.value.startDate!,
         end_date: this.projectForm.value.endDate!,
       };
-      console.log(project);
-      this.projectservice.postProject(project).subscribe((data:any)=>{
-        console.log(data)
-      })
+      this.projectservice.postProject(project).subscribe((data: any) => {
+        alert('New Project Added Successfully.');
+      });
+    } else {
+      alert('Enter Valid Data! All Feilds Are Required.');
     }
   }
 }

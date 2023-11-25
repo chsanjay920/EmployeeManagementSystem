@@ -7,33 +7,34 @@ import { EmployeeService } from 'src/app/services/employee.service';
 @Component({
   selector: 'app-hr-login',
   templateUrl: './hr-login.component.html',
-  styleUrls: ['./hr-login.component.css']
+  styleUrls: ['./hr-login.component.css'],
 })
 export class HrLoginComponent {
-  constructor(private employeeService:EmployeeService,
-    private authService:AuthenticationService,
-    private router:Router
-    )
-  {}
+  constructor(
+    private employeeService: EmployeeService,
+    private authService: AuthenticationService,
+    private router: Router
+  ) {}
   LoginForm = new FormGroup({
-    Email: new FormControl('', [Validators.required]),
-    Password: new FormControl('', [Validators.required]),    
+    Email: new FormControl('', [Validators.required,Validators.email]),
+    Password: new FormControl('', [Validators.required]),
   });
-  onSubmit()
-  {
-    if(this.LoginForm.status == 'VALID')
-    {
-      const logindata:LoginModel = {
-        email:this.LoginForm.value.Email!,
-        password:this.LoginForm.value.Password!,
-      }
-      this.employeeService.SignIn(logindata).subscribe((data)=>{
-        if(data!= null)
-        {
+  onSubmit() {
+    if (this.LoginForm.status == 'VALID') {
+      const logindata: LoginModel = {
+        email: this.LoginForm.value.Email!,
+        password: this.LoginForm.value.Password!,
+      };
+      this.employeeService.SignIn(logindata).subscribe((data) => {
+        if (data != null) {
           this.authService.storeToken(data);
           this.router.navigateByUrl('/');
+        } else {
+          alert('Wrong Credientials! Try Again');
         }
-      })
+      });
+    } else {
+      alert('Enter Valid Data!');
     }
   }
 }

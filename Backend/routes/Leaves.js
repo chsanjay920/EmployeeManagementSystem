@@ -40,8 +40,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-
-// Creating one Project
+// Creating one leave
 router.post('/', async (req, res) => {
     const leave = new Leaves({
         empid: req.body.empid,
@@ -58,6 +57,25 @@ router.post('/', async (req, res) => {
         res.status(400).json({ message: err.message })
     }
 })
+
+//update status
+router.post('/:leaveId/update-status', async (req, res) => {
+    const leaveId = req.params.leaveId;
+    const status = req.body.Status;
+    try {
+        const updatedLeave = await Leaves.findByIdAndUpdate(
+            leaveId,
+            { $set: { status: status } },
+            { new: true }
+        );
+        if (!updatedLeave) {
+            return res.status(404).json({ message: 'Leave not found' });
+        }
+        res.status(200).json(updatedLeave);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
 
 router.get('/:empid', getLeaves, (req, res) => {
     res.json(res.leaves)
@@ -76,23 +94,5 @@ async function getLeaves(req, res, next) {
     res.leaves = leaves
     next()
 }
-
-async function getEmpName(empid) {
-    let emp
-    try {
-        emp = await Employee.find({ employee_id: empid })
-        if (emp == null) {
-            return res.status(404).json({ message: 'Cannot find employee' })
-        }
-    }
-    catch (err) {
-        return res.status(500).json({ message: err.message })
-    }
-    console.log(emp);
-    return emp;
-}
-
-
-
 
 module.exports = router

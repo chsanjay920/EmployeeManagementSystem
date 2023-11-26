@@ -47,6 +47,7 @@ export class EmployeeRegisterComponent {
         .postEmployee(EmployeeDataObject)
         .subscribe((data: any) => {
           alert('New Employee Added Successfully.');
+          this.EmployeeForm.reset();
         });
     } else {
       alert('Enter Valid Data! All Feilds Are Required.');

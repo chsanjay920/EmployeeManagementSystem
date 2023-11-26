@@ -34,6 +34,7 @@ export class AddProjectComponent {
       };
       this.projectservice.postProject(project).subscribe((data: any) => {
         alert('New Project Added Successfully.');
+        this.projectForm.reset();
       });
     } else {
       alert('Enter Valid Data! All Feilds Are Required.');

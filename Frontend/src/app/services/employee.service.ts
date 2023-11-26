@@ -17,9 +17,7 @@ export class EmployeeService {
     return this.http.get<any[]>(`${this.apiUrl}employees/`);
   }
   postEmployee(data: EmployeeModel): any {
-    this.http
-      .post<any>(`${this.apiUrl}employees/`, data)
-      .subscribe((data) => {});
+    return this.http.post<any>(`${this.apiUrl}employees/`, data);
   }
   SignIn(data: LoginModel): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}employees/employee`, data);

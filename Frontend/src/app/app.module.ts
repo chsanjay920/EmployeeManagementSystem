@@ -24,6 +24,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { TimesheetComponent } from './components/timesheet/timesheet.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
+import { EditProjectComponent } from './components/edit-project/edit-project.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { NotificationsComponent } from './components/notifications/notifications
     ProfileComponent,
     ReviewsComponent,
     TimesheetComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    EmployeeEditComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,

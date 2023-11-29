@@ -54,6 +54,9 @@ export class AuthenticationService {
     const data = JSON.parse(localStorage.getItem('logintoken')!);
     return data.empid;
   }
+  getUserData(){
+    return JSON.parse(localStorage.getItem('logintoken')!);
+  }
   IsAdmin() {
     const data = JSON.parse(localStorage.getItem('logintoken')!);
     if (data && data.role == 'HR_MANAGMENT') {

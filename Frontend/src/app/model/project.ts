@@ -7,4 +7,5 @@ export interface projectModel {
     project_status:string;
     start_date:string;
     end_date:string;
+    _id?:string;
 }

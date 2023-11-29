@@ -22,4 +22,11 @@ export class EmployeeService {
   SignIn(data: LoginModel): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}employees/employee`, data);
   }
+  deleteEmployee(id: string) {
+    const url = `${this.apiUrl}employees/${id}`;
+    return this.http.delete<any>(url);
+  }
+  updateEmployee(employeeId: string, employeeData: EmployeeModel): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}employees/${employeeId}`, employeeData);
+  }
 }

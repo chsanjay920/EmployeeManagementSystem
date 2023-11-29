@@ -10,9 +10,8 @@
     <div class="row d-flex justify-content-center mb-5">
         <div class="col-8">
             <ol class="list-group list-group-numbered">
-                <li 
-                *ngFor="let employee of EmployeesList"
-                class="list-group-item d-flex justify-content-between align-items-start">
+                <li *ngFor="let employee of EmployeesList"
+                    class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                         <div class="fw-bold">
                             {{employee.first_name}} {{employee.last_name}}
@@ -24,9 +23,9 @@
                         </div>
                         <div style="display: flex; ">
                             <div>
-                                Email : 
+                                Email :
                                 <a href="mailto:{{employee.email}}">
-                                    {{employee.email}} 
+                                    {{employee.email}}
                                 </a>
                             </div>
                             <div>&nbsp;&nbsp;| &nbsp;&nbsp;</div>
@@ -35,9 +34,23 @@
                             </div>
                         </div>
                     </div>
-                    <span class="badge bg-primary rounded-pill">
-                        {{employee.working_status}}
+                    <span>
+                        <div class="badge bg-primary rounded-pill mt-3">
+                            {{employee.working_status}}
+                        </div>
                     </span>
+                    <div *ngIf="isAdmin">
+                        <span>
+                            <div class="btn" (click)="Delete(employee)">
+                                <i class="bi bi-trash fs-4 text-danger"></i>
+                            </div>
+                        </span>
+                        <span>
+                            <div class="btn" (click)="Edit(employee)">
+                                <i class="bi bi-pencil-square fs-4"></i>
+                            </div>
+                        </span>
+                    </div>
                 </li>
             </ol>
         </div>

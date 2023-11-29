@@ -18,6 +18,8 @@ import { SubmitTimeSheetComponent } from './components/submit-time-sheet/submit-
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { TimesheetComponent } from './components/timesheet/timesheet.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
+import { EditProjectComponent } from './components/edit-project/edit-project.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,6 +45,22 @@ const routes: Routes = [
     },
   },
   {
+    path: 'employees/edit',
+    component: EmployeeEditComponent,
+    canActivate: [authGuard],
+    data: {
+      expectedRole: 'HR_MANAGMENT',
+    },
+  },
+  {
+    path: 'project/edit',
+    component: EditProjectComponent,
+    canActivate: [authGuard],
+    data: {
+      expectedRole: 'HR_MANAGMENT',
+    },
+  },
+  {
     path: 'leaves',
     component: LeavesComponent,
     canActivate: [authGuard],
@@ -60,6 +78,7 @@ const routes: Routes = [
   },
   { path: 'login', component: HrLoginComponent },
   { path: 'reviews', component: ReviewsComponent },
+  { path: 'profile', component: ProfileComponent },
   {
     path: 'register/hr',
     component: HrRegisterComponent,

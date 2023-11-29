@@ -24,8 +24,20 @@
             <div class="widget-49-meeting-points mt-3 " style="height: 50px;">
                 {{projectDetailes.project_description| slice:0:100}}
             </div>
-            <div class="widget-49-meeting-action">
+            <div *ngIf="!isAdmin" class="widget-49-meeting-action">
                 <a href="#" class="btn btn-sm btn-flash-border-primary">View All</a>
+            </div>
+            <div *ngIf="isAdmin" class="widget-49-meeting-action">
+                <span>
+                    <div class="btn" (click)="Delete(projectDetailes)">
+                        <i class="bi bi-trash fs-4 text-danger"></i>
+                    </div>
+                </span>
+                <span>
+                    <div class="btn" (click)="Edit(projectDetailes)">
+                        <i class="bi bi-pencil-square fs-4"></i>
+                    </div>
+                </span>
             </div>
         </div>
     </div>
